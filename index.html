@@ -157,6 +157,80 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/20/Bolt%E5%B1%80%E9%99%90%E6%80%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="知海拾贝">
+      <meta itemprop="description" content="博学参省，跬步千里">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="知海拾贝 博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/20/Bolt%E5%B1%80%E9%99%90%E6%80%A7/" class="post-title-link" itemprop="url">Bolt局限性</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-07-20 20:26:04 / 修改时间：21:43:03" itemprop="dateCreated datePublished" datetime="2022-07-20T20:26:04+08:00">2022-07-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/compiler/" itemprop="url" rel="index"><span itemprop="name">compiler</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Bolt现存问题"><a href="#Bolt现存问题" class="headerlink" title="Bolt现存问题"></a>Bolt现存问题</h2><h3 id="一、CodeSize膨胀"><a href="#一、CodeSize膨胀" class="headerlink" title="一、CodeSize膨胀"></a>一、CodeSize膨胀</h3><p>Bolt在优化二进制文件后，会保留原始的.text section和.eh_frame section，并将原文件中的相应section重命名为.bolt.orig.text section。优化后的代码放在新生成的text section中，这导致优化后的文件中实际上存在两份代码段。.eh_frame section 同理。</p>
+<p>目前bolt官方没有关注优化后二进制文件CodeSize问题，但是对CodeSize敏感的设备上二进制文件使能bolt，删除旧的sections则很有必要。要完全删除旧的sections，这要求Bolt可以对所有函数完成反汇编，可以分析出所有函数对外部符号的引用。实际上，存在一些场景，会导致函数反汇编失败。比如手写汇编可以在函数A内部调用该函数内部的某处指令B，这在反汇编时会被认为是不正常的指令。</p>
+<h3 id="二、依赖Relocation-Section"><a href="#二、依赖Relocation-Section" class="headerlink" title="二、依赖Relocation Section"></a>二、依赖Relocation Section</h3><p>Bolt的一个优点是可以直接对库文件或可执行文件进行优化。但实际上，若二进制中不包含relocation section，那么Bolt很难体现出优化效果。这就要求在编译二进制过程时保留Relocation section。</p>
+<h3 id="三、Align信息丢失"><a href="#三、Align信息丢失" class="headerlink" title="三、Align信息丢失"></a>三、Align信息丢失</h3><p>在编译流程中，生成的汇编码中可以看到每个函数对应的Align。经过汇编链接以后，Align信息没有保存在最终的库文件中。这导致bolt反汇编时也不能获得Align信息。大多数情况下，这是没有问题的，但还是会存在对Align有要求的情况。比如虚拟机中常见的模板解释器是使用汇编实现的，这里对函数是有Align依赖的，函数的size必须要保持相同，不足的要用NOP补齐。若Bolt破坏掉这个Align规则，会导致解释器运行失败。当然，Bolt提供了skip-funcs的功能，即跳过指定的函数不处理。但这要求Bolt使用者对目标优化库文件有充分的认知，不然很可能会出现莫名其妙的问题。</p>
+<h3 id="四、Symbol地址更新存在不确定性"><a href="#四、Symbol地址更新存在不确定性" class="headerlink" title="四、Symbol地址更新存在不确定性"></a>四、Symbol地址更新存在不确定性</h3><p>以下面的程序为例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">funcA:</span><br><span class="line">...</span><br><span class="line">funcA_end</span><br><span class="line">funcB:</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>funcA_end代表funcA的结束位置，但地址与funcB的首地址一致。经bolt处理后，可能存在函数重排，funcA_end更新为funcA的结束位置还是funcB的首地址是存在不确定性的。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/24/Bolt%E4%B8%ADRelocation%E4%BD%9C%E7%94%A8%E5%88%86%E6%9E%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -517,7 +591,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
