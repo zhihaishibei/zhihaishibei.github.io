@@ -1,6 +1,6 @@
 ---
 title: Propeller
-categories: compiler
+categories: PGO
 tags: [propeller,post link optimizer,pgo]
 ---
 # Propeller 源码分析

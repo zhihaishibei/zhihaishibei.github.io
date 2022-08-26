@@ -1,7 +1,7 @@
 ---
 title: Propeller优化流程及影响分析
 date: 2022-06-11 12:34:39
-categories: compiler
+categories: PGO
 tags: [propeller,post link optimizer,pgo]
 ---
 ## 一、Propeller执行过程

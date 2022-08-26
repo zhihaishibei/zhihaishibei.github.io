@@ -1,7 +1,7 @@
 ---
 title: Bolt局限性
 date: 2022-07-20 20:26:04
-categories: compiler
+categories: PGO
 tags: [bolt,post link optimizer,pgo]
 ---
 ## Bolt现存问题
@@ -23,3 +23,47 @@ funcB:
 ...
 ```
 funcA_end代表funcA的结束位置，但地址与funcB的首地址一致。经bolt处理后，可能存在函数重排，funcA_end更新为funcA的结束位置还是funcB的首地址是存在不确定性的。
+### 五、对DT_FINI的依赖
+bolt处理动态库文件，要求动态库的.dynamic section包含DT_FINI entry，其作用是做钩子函数，bolt处理后会将改地址更新为新函数地址，新函数的功能包括：
+- 保存profile数据
+- 调用原来的fini函数
+
+而DT_FINI entry并非.dynamic section的必选项。所以要求编译库文件过程中指定fini函数，如ld.lld可通过--fini=symbol指定。
+### 六、GOT表更新
+对于多入口函数，除主入口外，其他入口若在GOT表中有相应的entry，则函数位置变化以后，GOT表不能正常更新。
+### 七、插桩后的库文件生成WE的segment
+有些平台不支持可写可执行的segment，因此需要对WE segment进行拆分
+### 八、对arm64 relocation的处理前后不一致
+```c++
+void RewriteInstance::readRelocations(const SectionRef &Section) {
+  ...
+      // In AArch64 there are zero reasons to keep a reference to the
+      // "original" symbol plus addend. The original symbol is probably just a
+      // section symbol. If we are here, this means we are probably accessing
+      // data, so it is imperative to keep the original address.
+      if (IsAArch64) {
+        SymbolName = ("SYMBOLat0x" + Twine::utohexstr(Address)).str();
+        SymbolAddress = Address;
+        Addend = 0;
+      }
+  ...
+}
+```
+```c++
+bool RewriteInstance::analyzeRelocation(
+    const RelocationRef &Rel, uint64_t RType, std::string &SymbolName,
+    bool &IsSectionRelocation, uint64_t &SymbolAddress, int64_t &Addend,
+    uint64_t &ExtractedValue, bool &Skip) const {
+  ...
+  if (SymbolIter == InputFile->symbol_end()) {
+    SymbolAddress = ExtractedValue - Addend + PCRelOffset;
+    MCSymbol *RelSymbol =
+        BC->getOrCreateGlobalSymbol(SymbolAddress, "RELSYMat");
+    SymbolName = std::string(RelSymbol->getName());
+    IsSectionRelocation = false;
+  } else {
+    ...
+  }
+}
+```
+对arm64 relocation的处理前后不一致，导致找不到符号。

@@ -1,7 +1,7 @@
 ---
 title: Bolt中Relocation作用分析
 date: 2022-06-24 19:25:35
-categories: compiler
+categories: PGO
 tags: [bolt,post link optimizer,pgo]
 ---
 ## Relocation Section的必要性分析
