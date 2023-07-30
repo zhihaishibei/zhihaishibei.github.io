@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="博学参省，跬步千里">
+<meta property="og:type" content="website">
+<meta property="og:title" content="知海拾贝 博客">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="知海拾贝 博客">
+<meta property="og:description" content="博学参省，跬步千里">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="知海拾贝">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>知海拾贝 博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">知海拾贝 博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/09/V8-Stackmap-md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="知海拾贝">
+      <meta itemprop="description" content="博学参省，跬步千里">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="知海拾贝 博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/07/09/V8-Stackmap-md/" class="post-title-link" itemprop="url">V8 Stackmap.md</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-07-09 23:25:48 / 修改时间：23:27:51" itemprop="dateCreated datePublished" datetime="2023-07-09T23:25:48+08:00">2023-07-09</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="RecordCallPosition"><a href="#RecordCallPosition" class="headerlink" title="RecordCallPosition"></a>RecordCallPosition</h2><p>-&gt;CodeGenerator::RecordCallPosition<br>    -&gt;RecordSafepoint<br>    -&gt;BuildTranslation<br>        -&gt;GetDeoptimizationEntry()</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/21/elf%E6%A0%BC%E5%BC%8F%E8%A6%81%E6%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="知海拾贝">
+      <meta itemprop="description" content="博学参省，跬步千里">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="知海拾贝 博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/21/elf%E6%A0%BC%E5%BC%8F%E8%A6%81%E6%B1%82/" class="post-title-link" itemprop="url">elf格式要求</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-10-21 20:41:12 / 修改时间：21:31:00" itemprop="dateCreated datePublished" datetime="2022-10-21T20:41:12+08:00">2022-10-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Loader/" itemprop="url" rel="index"><span itemprop="name">Loader</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>由于经过bolt处理后的二进制文件，其codesize有膨胀。于是，针对codesize，对bolt做了一些优化。过程中遇到了一些问题，经调试动态连接器，了解了一些elf文件的格式要求。</p>
+<h2 id="segment-p-vaddr与p-offset"><a href="#segment-p-vaddr与p-offset" class="headerlink" title="segment p_vaddr与p_offset"></a>segment p_vaddr与p_offset</h2><ul>
+<li>类型为Load的segment，p_vaddr与p_offset要关于segment align 同余。</li>
+<li>类型为Load的segment，务必以page size对齐<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">dl-load.c</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">link_map</span> *</span><br><span class="line">_dl_map_object_from_fd (<span class="type">const</span> <span class="type">char</span> *name, <span class="type">const</span> <span class="type">char</span> *origname, <span class="type">int</span> fd,</span><br><span class="line">			<span class="keyword">struct</span> filebuf *fbp, <span class="type">char</span> *realname,</span><br><span class="line">			<span class="keyword">struct</span> link_map *loader, <span class="type">int</span> l_type, <span class="type">int</span> mode,</span><br><span class="line">			<span class="type">void</span> **stack_endp, Lmid_t nsid)</span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">      &#123;</span><br><span class="line">    <span class="comment">/* Scan the program header table, collecting its load commands.  */</span></span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">loadcmd</span> loadcmds[l-&gt;l_phnum];</span><br><span class="line">    <span class="type">size_t</span> nloadcmds = <span class="number">0</span>;</span><br><span class="line">    <span class="type">bool</span> has_holes = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* The struct is initialized to zero so this is not necessary:</span></span><br><span class="line"><span class="comment">    l-&gt;l_ld = 0;</span></span><br><span class="line"><span class="comment">    l-&gt;l_phdr = 0;</span></span><br><span class="line"><span class="comment">    l-&gt;l_addr = 0; */</span></span><br><span class="line">    <span class="keyword">for</span> (ph = phdr; ph &lt; &amp;phdr[l-&gt;l_phnum]; ++ph)</span><br><span class="line">      <span class="keyword">switch</span> (ph-&gt;p_type)</span><br><span class="line">	&#123;</span><br><span class="line">    ...</span><br><span class="line">	<span class="keyword">case</span> PT_LOAD:</span><br><span class="line">	  <span class="comment">/* A load command tells us to map in part of the file.</span></span><br><span class="line"><span class="comment">	     We record the load commands and process them all later.  */</span></span><br><span class="line">	  <span class="keyword">if</span> (__glibc_unlikely ((ph-&gt;p_align &amp; (<span class="built_in">GLRO</span>(dl_pagesize) - <span class="number">1</span>)) != <span class="number">0</span>))</span><br><span class="line">	    &#123;</span><br><span class="line">	      errstring = <span class="built_in">N_</span>(<span class="string">&quot;ELF load command alignment not page-aligned&quot;</span>);</span><br><span class="line">	      <span class="keyword">goto</span> call_lose;</span><br><span class="line">	    &#125;</span><br><span class="line">	  <span class="keyword">if</span> (__glibc_unlikely (((ph-&gt;p_vaddr - ph-&gt;p_offset)</span><br><span class="line">				 &amp; (ph-&gt;p_align - <span class="number">1</span>)) != <span class="number">0</span>))</span><br><span class="line">	    &#123;</span><br><span class="line">	      errstring</span><br><span class="line">		= <span class="built_in">N_</span>(<span class="string">&quot;ELF load command address/offset not properly aligned&quot;</span>);</span><br><span class="line">	      <span class="keyword">goto</span> call_lose;</span><br><span class="line">	    &#125;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Load-segment的排列顺序"><a href="#Load-segment的排列顺序" class="headerlink" title="Load segment的排列顺序"></a>Load segment的排列顺序</h2>类型为DYN的可执行程序或动态库，Load segment要按照地址从小到大布局<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">link_map</span> *</span><br><span class="line">_dl_map_object_from_fd (<span class="type">const</span> <span class="type">char</span> *name, <span class="type">const</span> <span class="type">char</span> *origname, <span class="type">int</span> fd,</span><br><span class="line">			<span class="keyword">struct</span> filebuf *fbp, <span class="type">char</span> *realname,</span><br><span class="line">			<span class="keyword">struct</span> link_map *loader, <span class="type">int</span> l_type, <span class="type">int</span> mode,</span><br><span class="line">			<span class="type">void</span> **stack_endp, Lmid_t nsid)</span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="comment">/* Scan the program header table, collecting its load commands.  */</span></span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">loadcmd</span> loadcmds[l-&gt;l_phnum];</span><br><span class="line">    <span class="type">size_t</span> nloadcmds = <span class="number">0</span>;</span><br><span class="line">    <span class="type">bool</span> has_holes = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* The struct is initialized to zero so this is not necessary:</span></span><br><span class="line"><span class="comment">    l-&gt;l_ld = 0;</span></span><br><span class="line"><span class="comment">    l-&gt;l_phdr = 0;</span></span><br><span class="line"><span class="comment">    l-&gt;l_addr = 0; */</span></span><br><span class="line">    <span class="keyword">for</span> (ph = phdr; ph &lt; &amp;phdr[l-&gt;l_phnum]; ++ph)</span><br><span class="line">      <span class="keyword">switch</span> (ph-&gt;p_type)</span><br><span class="line">	&#123;</span><br><span class="line">	  ...</span><br><span class="line">	<span class="keyword">case</span> PT_LOAD:</span><br><span class="line">	  <span class="comment">/* A load command tells us to map in part of the file.</span></span><br><span class="line"><span class="comment">	     We record the load commands and process them all later.  */</span></span><br><span class="line">	  <span class="keyword">if</span> (__glibc_unlikely ((ph-&gt;p_align &amp; (<span class="built_in">GLRO</span>(dl_pagesize) - <span class="number">1</span>)) != <span class="number">0</span>))</span><br><span class="line">	    &#123;</span><br><span class="line">	      errstring = <span class="built_in">N_</span>(<span class="string">&quot;ELF load command alignment not page-aligned&quot;</span>);</span><br><span class="line">	      <span class="keyword">goto</span> call_lose;</span><br><span class="line">	    &#125;</span><br><span class="line">	  <span class="keyword">if</span> (__glibc_unlikely (((ph-&gt;p_vaddr - ph-&gt;p_offset)</span><br><span class="line">				 &amp; (ph-&gt;p_align - <span class="number">1</span>)) != <span class="number">0</span>))</span><br><span class="line">	    &#123;</span><br><span class="line">	      errstring</span><br><span class="line">		= <span class="built_in">N_</span>(<span class="string">&quot;ELF load command address/offset not properly aligned&quot;</span>);</span><br><span class="line">	      <span class="keyword">goto</span> call_lose;</span><br><span class="line">	    &#125;</span><br><span class="line"></span><br><span class="line">	  <span class="keyword">struct</span> <span class="title class_">loadcmd</span> *c = &amp;loadcmds[nloadcmds++];</span><br><span class="line">	  c-&gt;mapstart = <span class="built_in">ALIGN_DOWN</span> (ph-&gt;p_vaddr, <span class="built_in">GLRO</span>(dl_pagesize));</span><br><span class="line">	  c-&gt;mapend = <span class="built_in">ALIGN_UP</span> (ph-&gt;p_vaddr + ph-&gt;p_filesz, <span class="built_in">GLRO</span>(dl_pagesize));</span><br><span class="line">	  c-&gt;dataend = ph-&gt;p_vaddr + ph-&gt;p_filesz;</span><br><span class="line">	  c-&gt;allocend = ph-&gt;p_vaddr + ph-&gt;p_memsz;</span><br><span class="line">	  c-&gt;mapoff = <span class="built_in">ALIGN_DOWN</span> (ph-&gt;p_offset, <span class="built_in">GLRO</span>(dl_pagesize));</span><br><span class="line"></span><br><span class="line">	  <span class="comment">/* Determine whether there is a gap between the last segment</span></span><br><span class="line"><span class="comment">	     and this one.  */</span></span><br><span class="line">	  <span class="keyword">if</span> (nloadcmds &gt; <span class="number">1</span> &amp;&amp; c[<span class="number">-1</span>].mapend != c-&gt;mapstart)</span><br><span class="line">	    has_holes = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">	  <span class="comment">/* Optimize a common case.  */</span></span><br><span class="line"><span class="meta">#<span class="keyword">if</span> (PF_R | PF_W | PF_X) == 7 &amp;&amp; (PROT_READ | PROT_WRITE | PROT_EXEC) == 7</span></span><br><span class="line">	  c-&gt;prot = (PF_TO_PROT</span><br><span class="line">		     &gt;&gt; ((ph-&gt;p_flags &amp; (PF_R | PF_W | PF_X)) * <span class="number">4</span>)) &amp; <span class="number">0xf</span>;</span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">	  c-&gt;prot = <span class="number">0</span>;</span><br><span class="line">	  <span class="keyword">if</span> (ph-&gt;p_flags &amp; PF_R)</span><br><span class="line">	    c-&gt;prot |= PROT_READ;</span><br><span class="line">	  <span class="keyword">if</span> (ph-&gt;p_flags &amp; PF_W)</span><br><span class="line">	    c-&gt;prot |= PROT_WRITE;</span><br><span class="line">	  <span class="keyword">if</span> (ph-&gt;p_flags &amp; PF_X)</span><br><span class="line">	    c-&gt;prot |= PROT_EXEC;</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line">	  <span class="keyword">break</span>;</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Length of the sections to be loaded.  */</span></span><br><span class="line">    maplength = loadcmds[nloadcmds - <span class="number">1</span>].allocend - loadcmds[<span class="number">0</span>].mapstart;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Now process the load commands and map segments into memory.</span></span><br><span class="line"><span class="comment">       This is responsible for filling in:</span></span><br><span class="line"><span class="comment">       l_map_start, l_map_end, l_addr, l_contiguous, l_text_end, l_phdr</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    errstring = _dl_map_segments (l, fd, header, type, loadcmds, nloadcmds,</span><br><span class="line">				  maplength, has_holes, loader);</span><br><span class="line">    <span class="keyword">if</span> (__glibc_unlikely (errstring != <span class="literal">NULL</span>))</span><br><span class="line">      <span class="keyword">goto</span> call_lose;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+若不按地址大小排列，则maplength可能为负值。_dl_map_segments 函数如下：<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">elf/dl-map-segments.h</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> __always_inline <span class="type">const</span> <span class="type">char</span> *</span><br><span class="line">_dl_map_segments (<span class="keyword">struct</span> link_map *l, <span class="type">int</span> fd,</span><br><span class="line">                  <span class="type">const</span> <span class="built_in">ElfW</span>(Ehdr) *header, <span class="type">int</span> type,</span><br><span class="line">                  <span class="type">const</span> <span class="keyword">struct</span> loadcmd loadcmds[], <span class="type">size_t</span> nloadcmds,</span><br><span class="line">                  <span class="type">const</span> <span class="type">size_t</span> maplength, <span class="type">bool</span> has_holes,</span><br><span class="line">                  <span class="keyword">struct</span> link_map *loader)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="type">const</span> <span class="keyword">struct</span> <span class="title class_">loadcmd</span> *c = loadcmds;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (__glibc_likely (type == ET_DYN))</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="comment">/* This is a position-independent shared object.  We can let the</span></span><br><span class="line"><span class="comment">         kernel map it anywhere it likes, but we must have space for all</span></span><br><span class="line"><span class="comment">         the segments in their specified positions relative to the first.</span></span><br><span class="line"><span class="comment">         So we map the first segment without MAP_FIXED, but with its</span></span><br><span class="line"><span class="comment">         extent increased to cover all the segments.  Then we remove</span></span><br><span class="line"><span class="comment">         access from excess portion, and there is known sufficient space</span></span><br><span class="line"><span class="comment">         there to remap from the later segments.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">         As a refinement, sometimes we have an address that we would</span></span><br><span class="line"><span class="comment">         prefer to map such objects at; but this is only a preference,</span></span><br><span class="line"><span class="comment">         the OS can do whatever it likes. */</span></span><br><span class="line">      <span class="built_in">ElfW</span>(Addr) mappref</span><br><span class="line">        = (<span class="built_in">ELF_PREFERRED_ADDRESS</span> (loader, maplength,</span><br><span class="line">                                  c-&gt;mapstart &amp; <span class="built_in">GLRO</span>(dl_use_load_bias))</span><br><span class="line">           - <span class="built_in">MAP_BASE_ADDR</span> (l));</span><br><span class="line"></span><br><span class="line">      <span class="comment">/* Remember which part of the address space this object uses.  */</span></span><br><span class="line">      l-&gt;l_map_start = (<span class="built_in">ElfW</span>(Addr)) __mmap ((<span class="type">void</span> *) mappref, maplength,</span><br><span class="line">                                            c-&gt;prot,</span><br><span class="line">                                            MAP_COPY|MAP_FILE,</span><br><span class="line">                                            fd, c-&gt;mapoff);</span><br><span class="line">      <span class="keyword">if</span> (__glibc_unlikely ((<span class="type">void</span> *) l-&gt;l_map_start == MAP_FAILED))</span><br><span class="line">        <span class="keyword">return</span> DL_MAP_SEGMENTS_ERROR_MAP_SEGMENT;</span><br><span class="line"></span><br><span class="line">      l-&gt;l_map_end = l-&gt;l_map_start + maplength;</span><br><span class="line">      l-&gt;l_addr = l-&gt;l_map_start - c-&gt;mapstart;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (has_holes)</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="comment">/* Change protection on the excess portion to disallow all access;</span></span><br><span class="line"><span class="comment">             the portions we do not remap later will be inaccessible as if</span></span><br><span class="line"><span class="comment">             unallocated.  Then jump into the normal segment-mapping loop to</span></span><br><span class="line"><span class="comment">             handle the portion of the segment past the end of the file</span></span><br><span class="line"><span class="comment">             mapping.  */</span></span><br><span class="line">          <span class="keyword">if</span> (__glibc_unlikely</span><br><span class="line">              (__mprotect ((<span class="type">caddr_t</span>) (l-&gt;l_addr + c-&gt;mapend),</span><br><span class="line">                           loadcmds[nloadcmds - <span class="number">1</span>].mapstart - c-&gt;mapend,</span><br><span class="line">                           PROT_NONE) &lt; <span class="number">0</span>))</span><br><span class="line">            <span class="keyword">return</span> DL_MAP_SEGMENTS_ERROR_MPROTECT;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">      l-&gt;l_contiguous = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">goto</span> postmap;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* Remember which part of the address space this object uses.  */</span></span><br><span class="line">  l-&gt;l_map_start = c-&gt;mapstart + l-&gt;l_addr;</span><br><span class="line">  l-&gt;l_map_end = l-&gt;l_map_start + maplength;</span><br><span class="line">  l-&gt;l_contiguous = !has_holes;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (c &lt; &amp;loadcmds[nloadcmds])</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">if</span> (c-&gt;mapend &gt; c-&gt;mapstart</span><br><span class="line">          <span class="comment">/* Map the segment contents from the file.  */</span></span><br><span class="line">          &amp;&amp; (__mmap ((<span class="type">void</span> *) (l-&gt;l_addr + c-&gt;mapstart),</span><br><span class="line">                      c-&gt;mapend - c-&gt;mapstart, c-&gt;prot,</span><br><span class="line">                      MAP_FIXED|MAP_COPY|MAP_FILE,</span><br><span class="line">                      fd, c-&gt;mapoff)</span><br><span class="line">              == MAP_FAILED))</span><br><span class="line">        <span class="keyword">return</span> DL_MAP_SEGMENTS_ERROR_MAP_SEGMENT;</span><br><span class="line"></span><br><span class="line">    postmap:</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* Notify ELF_PREFERRED_ADDRESS that we have to load this one</span></span><br><span class="line"><span class="comment">     fixed.  */</span></span><br><span class="line">  <span class="built_in">ELF_FIXED_ADDRESS</span> (loader, c-&gt;mapstart);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+这里可以看到，_dl_map_segments处理类型为DYN和EXEC的elf文件方式不同。</li>
+<li>type为DYN，直接用maplength做内存映射，因此maplength务必是load segments的有效总大小</li>
+<li>type为EXEC，分别对每个segment做内存映射</li>
+</ul>
+<p>综上，类型为DYN的elf文件，segment table中，Load segment务必按地址从小到大排列。另外需要注意的是，在编译可执行文件时，如果加了pie选项，则该生成的可执行文件类型为DYN，同样要遵循上述规则。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/26/Arm64%E6%A0%88%E5%AF%B9%E9%BD%90%E8%A7%84%E5%88%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="知海拾贝">
+      <meta itemprop="description" content="博学参省，跬步千里">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="知海拾贝 博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/08/26/Arm64%E6%A0%88%E5%AF%B9%E9%BD%90%E8%A7%84%E5%88%99/" class="post-title-link" itemprop="url">Arm64栈对齐规则</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-08-26 19:09:25 / 修改时间：19:42:13" itemprop="dateCreated datePublished" datetime="2022-08-26T19:09:25+08:00">2022-08-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/compiler/" itemprop="url" rel="index"><span itemprop="name">compiler</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近在bolt使能过程中，遇到一个SIGBUS的问题。在调用栈中，最后一层栈的报错指令是一条<code>stp x0, x1, [sp, #-16]!</code>，该指令是插桩过程添加的指令。一般来说，在函数入口处，都会通过指令<code>stp fp, lr, [sp, #-16]</code>保存fp和lr。理论上，两条指令并无本质区别。</p>
+<p>报错的信息SIGBUS看起来又是一种对齐问题。进一步分析发现，在报错的位置，SP的值不是16byte对齐的。arm64平台上，通过SP访问栈，要求SP的值务必是16byte对齐。而出问题的函数，caller和callee有自己的约定，caller保存lr，并更新SP，callee负责保存fp。在callee函数中，不直接通过pre-index的方式存栈，而是使用<code>sub, sp, sp, #504</code> 的方式先开栈，这个过程同时保证了SP满足对齐要求。然后通过<code>str fp, [sp, #496]</code> <code>stp...</code>等指令将寄存器入栈。</p>
+<p>可以写一个小例子说明上述问题,在汇编中写两条指令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str x0, [sp, #-8]!</span><br><span class="line">str x1, [sp, #-8]!</span><br></pre></td></tr></table></figure>
+<p>会发现第二条指令处报SIGBUS error。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/13/Thread/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="知海拾贝">
+      <meta itemprop="description" content="博学参省，跬步千里">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="知海拾贝 博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/08/13/Thread/" class="post-title-link" itemprop="url">Thread</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-08-13 16:42:50" itemprop="dateCreated datePublished" datetime="2022-08-13T16:42:50+08:00">2022-08-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-08-26 19:45:28" itemprop="dateModified" datetime="2022-08-26T19:45:28+08:00">2022-08-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/art/" itemprop="url" rel="index"><span itemprop="name">art</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="一、Thread相关数据结构"><a href="#一、Thread相关数据结构" class="headerlink" title="一、Thread相关数据结构"></a>一、Thread相关数据结构</h2><p><img src="/2022/08/13/Thread/ThreadData.drawio.svg"></p>
+<h2 id="二、MonitorEnter实现"><a href="#二、MonitorEnter实现" class="headerlink" title="二、MonitorEnter实现"></a>二、MonitorEnter实现</h2><h3 id="2-1-Monitor未被锁住"><a href="#2-1-Monitor未被锁住" class="headerlink" title="2.1 Monitor未被锁住"></a>2.1 Monitor未被锁住</h3><p><img src="/2022/08/13/Thread/2.1.drawio.svg"></p>
+<h3 id="2-2-Monitor被self锁住"><a href="#2-2-Monitor被self锁住" class="headerlink" title="2.2 Monitor被self锁住"></a>2.2 Monitor被self锁住</h3><p><img src="/2022/08/13/Thread/2.2.drawio.svg"></p>
+<h3 id="2-3-Monitor被其他thread锁住"><a href="#2-3-Monitor被其他thread锁住" class="headerlink" title="2.3 Monitor被其他thread锁住"></a>2.3 Monitor被其他thread锁住</h3><p><img src="/2022/08/13/Thread/2.3.drawio.svg"></p>
+<h2 id="三、MonitorExit实现"><a href="#三、MonitorExit实现" class="headerlink" title="三、MonitorExit实现"></a>三、MonitorExit实现</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/20/Bolt%E5%B1%80%E9%99%90%E6%80%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="知海拾贝">
+      <meta itemprop="description" content="博学参省，跬步千里">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="知海拾贝 博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/20/Bolt%E5%B1%80%E9%99%90%E6%80%A7/" class="post-title-link" itemprop="url">Bolt局限性</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-07-20 20:26:04" itemprop="dateCreated datePublished" datetime="2022-07-20T20:26:04+08:00">2022-07-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-08-26 20:11:17" itemprop="dateModified" datetime="2022-08-26T20:11:17+08:00">2022-08-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PGO/" itemprop="url" rel="index"><span itemprop="name">PGO</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Bolt现存问题"><a href="#Bolt现存问题" class="headerlink" title="Bolt现存问题"></a>Bolt现存问题</h2><h3 id="一、CodeSize膨胀"><a href="#一、CodeSize膨胀" class="headerlink" title="一、CodeSize膨胀"></a>一、CodeSize膨胀</h3><p>Bolt在优化二进制文件后，会保留原始的.text section和.eh_frame section，并将原文件中的相应section重命名为.bolt.orig.text section。优化后的代码放在新生成的text section中，这导致优化后的文件中实际上存在两份代码段。.eh_frame section 同理。</p>
+<p>目前bolt官方没有关注优化后二进制文件CodeSize问题，但是对CodeSize敏感的设备上二进制文件使能bolt，删除旧的sections则很有必要。要完全删除旧的sections，这要求Bolt可以对所有函数完成反汇编，可以分析出所有函数对外部符号的引用。实际上，存在一些场景，会导致函数反汇编失败。比如手写汇编可以在函数A内部调用该函数内部的某处指令B，这在反汇编时会被认为是不正常的指令。</p>
+<h3 id="二、依赖Relocation-Section"><a href="#二、依赖Relocation-Section" class="headerlink" title="二、依赖Relocation Section"></a>二、依赖Relocation Section</h3><p>Bolt的一个优点是可以直接对库文件或可执行文件进行优化。但实际上，若二进制中不包含relocation section，那么Bolt很难体现出优化效果。这就要求在编译二进制过程时保留Relocation section。</p>
+<h3 id="三、Align信息丢失"><a href="#三、Align信息丢失" class="headerlink" title="三、Align信息丢失"></a>三、Align信息丢失</h3><p>在编译流程中，生成的汇编码中可以看到每个函数对应的Align。经过汇编链接以后，Align信息没有保存在最终的库文件中。这导致bolt反汇编时也不能获得Align信息。大多数情况下，这是没有问题的，但还是会存在对Align有要求的情况。比如虚拟机中常见的模板解释器是使用汇编实现的，这里对函数是有Align依赖的，函数的size必须要保持相同，不足的要用NOP补齐。若Bolt破坏掉这个Align规则，会导致解释器运行失败。当然，Bolt提供了skip-funcs的功能，即跳过指定的函数不处理。但这要求Bolt使用者对目标优化库文件有充分的认知，不然很可能会出现莫名其妙的问题。</p>
+<h3 id="四、Symbol地址更新存在不确定性"><a href="#四、Symbol地址更新存在不确定性" class="headerlink" title="四、Symbol地址更新存在不确定性"></a>四、Symbol地址更新存在不确定性</h3><p>以下面的程序为例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">funcA:</span><br><span class="line">...</span><br><span class="line">funcA_end</span><br><span class="line">funcB:</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>funcA_end代表funcA的结束位置，但地址与funcB的首地址一致。经bolt处理后，可能存在函数重排，funcA_end更新为funcA的结束位置还是funcB的首地址是存在不确定性的。</p>
+<h3 id="五、对DT-FINI的依赖"><a href="#五、对DT-FINI的依赖" class="headerlink" title="五、对DT_FINI的依赖"></a>五、对DT_FINI的依赖</h3><p>bolt处理动态库文件，要求动态库的.dynamic section包含DT_FINI entry，其作用是做钩子函数，bolt处理后会将改地址更新为新函数地址，新函数的功能包括：</p>
+<ul>
+<li>保存profile数据</li>
+<li>调用原来的fini函数</li>
+</ul>
+<p>而DT_FINI entry并非.dynamic section的必选项。所以要求编译库文件过程中指定fini函数，如ld.lld可通过–fini&#x3D;symbol指定。</p>
+<h3 id="六、GOT表更新"><a href="#六、GOT表更新" class="headerlink" title="六、GOT表更新"></a>六、GOT表更新</h3><p>对于多入口函数，除主入口外，其他入口若在GOT表中有相应的entry，则函数位置变化以后，GOT表不能正常更新。</p>
+<h3 id="七、插桩后的库文件生成WE的segment"><a href="#七、插桩后的库文件生成WE的segment" class="headerlink" title="七、插桩后的库文件生成WE的segment"></a>七、插桩后的库文件生成WE的segment</h3><p>有些平台不支持可写可执行的segment，因此需要对WE segment进行拆分</p>
+<h3 id="八、对arm64-relocation的处理前后不一致"><a href="#八、对arm64-relocation的处理前后不一致" class="headerlink" title="八、对arm64 relocation的处理前后不一致"></a>八、对arm64 relocation的处理前后不一致</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">RewriteInstance::readRelocations</span><span class="params">(<span class="type">const</span> SectionRef &amp;Section)</span> </span>&#123;</span><br><span class="line">  ...</span><br><span class="line">      <span class="comment">// In AArch64 there are zero reasons to keep a reference to the</span></span><br><span class="line">      <span class="comment">// &quot;original&quot; symbol plus addend. The original symbol is probably just a</span></span><br><span class="line">      <span class="comment">// section symbol. If we are here, this means we are probably accessing</span></span><br><span class="line">      <span class="comment">// data, so it is imperative to keep the original address.</span></span><br><span class="line">      <span class="keyword">if</span> (IsAArch64) &#123;</span><br><span class="line">        SymbolName = (<span class="string">&quot;SYMBOLat0x&quot;</span> + Twine::<span class="built_in">utohexstr</span>(Address)).<span class="built_in">str</span>();</span><br><span class="line">        SymbolAddress = Address;</span><br><span class="line">        Addend = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">RewriteInstance::analyzeRelocation</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">    <span class="type">const</span> RelocationRef &amp;Rel, <span class="type">uint64_t</span> RType, std::string &amp;SymbolName,</span></span></span><br><span class="line"><span class="params"><span class="function">    <span class="type">bool</span> &amp;IsSectionRelocation, <span class="type">uint64_t</span> &amp;SymbolAddress, <span class="type">int64_t</span> &amp;Addend,</span></span></span><br><span class="line"><span class="params"><span class="function">    <span class="type">uint64_t</span> &amp;ExtractedValue, <span class="type">bool</span> &amp;Skip)</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="keyword">if</span> (SymbolIter == InputFile-&gt;<span class="built_in">symbol_end</span>()) &#123;</span><br><span class="line">    SymbolAddress = ExtractedValue - Addend + PCRelOffset;</span><br><span class="line">    MCSymbol *RelSymbol =</span><br><span class="line">        BC-&gt;<span class="built_in">getOrCreateGlobalSymbol</span>(SymbolAddress, <span class="string">&quot;RELSYMat&quot;</span>);</span><br><span class="line">    SymbolName = std::<span class="built_in">string</span>(RelSymbol-&gt;<span class="built_in">getName</span>());</span><br><span class="line">    IsSectionRelocation = <span class="literal">false</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对arm64 relocation的处理前后不一致，导致找不到符号。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/24/Bolt%E4%B8%ADRelocation%E4%BD%9C%E7%94%A8%E5%88%86%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="知海拾贝">
+      <meta itemprop="description" content="博学参省，跬步千里">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="知海拾贝 博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/06/24/Bolt%E4%B8%ADRelocation%E4%BD%9C%E7%94%A8%E5%88%86%E6%9E%90/" class="post-title-link" itemprop="url">Bolt中Relocation作用分析</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-06-24 19:25:35" itemprop="dateCreated datePublished" datetime="2022-06-24T19:25:35+08:00">2022-06-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-08-26 19:45:11" itemprop="dateModified" datetime="2022-08-26T19:45:11+08:00">2022-08-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PGO/" itemprop="url" rel="index"><span itemprop="name">PGO</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Relocation-Section的必要性分析"><a href="#Relocation-Section的必要性分析" class="headerlink" title="Relocation Section的必要性分析"></a>Relocation Section的必要性分析</h2><p>Bolt插桩&#x2F;优化过程中，要求其输入的二进制文件需包含relocation section。而正常编译出的二进制文件，linker 默认不输出这些section。下面就以coremark为例，探索Relocation Section在Bolt中的作用。</p>
+<p>以coremark为例，默认编译出的二进制文件是不包含.rela.text section的。编译命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/project/llvm/build/bin/clang -O2 -Ilinux -Iposix -I. -DFLAGS_STR=\&quot;&quot;-O2 -DPERFORMANCE_RUN=1  -lrt&quot;\&quot; -DITERATIONS=0 -DPERFORMANCE_RUN=1 core_list_join.c core_main.c core_matrix.c core_state.c core_util.c posix/core_portme.c -o ./coremark.exe -lrt</span><br></pre></td></tr></table></figure>
+<p>查看其section <code>readelf -S coremark.exe</code> 如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">There are 28 section headers, starting at offset 0x82c8:</span><br><span class="line"></span><br><span class="line">Section Headers:</span><br><span class="line">  [Nr] Name              Type             Address           Offset</span><br><span class="line">       Size              EntSize          Flags  Link  Info  Align</span><br><span class="line">  [ 0]                   NULL             0000000000000000  00000000</span><br><span class="line">       0000000000000000  0000000000000000           0     0     0</span><br><span class="line">  [ 1] .interp           PROGBITS         00000000004002a8  000002a8</span><br><span class="line">       000000000000001c  0000000000000000   A       0     0     1</span><br><span class="line">  [ 2] .note.ABI-tag     NOTE             00000000004002c4  000002c4</span><br><span class="line">       0000000000000020  0000000000000000   A       0     0     4</span><br><span class="line">  [ 3] .gnu.hash         GNU_HASH         00000000004002e8  000002e8</span><br><span class="line">       000000000000001c  0000000000000000   A       4     0     8</span><br><span class="line">  [ 4] .dynsym           DYNSYM           0000000000400308  00000308</span><br><span class="line">       00000000000000f0  0000000000000018   A       5     1     8</span><br><span class="line">  [ 5] .dynstr           STRTAB           00000000004003f8  000003f8</span><br><span class="line">       0000000000000083  0000000000000000   A       0     0     1</span><br><span class="line">  [ 6] .gnu.version      VERSYM           000000000040047c  0000047c</span><br><span class="line">       0000000000000014  0000000000000002   A       4     0     2</span><br><span class="line">  [ 7] .gnu.version_r    VERNEED          0000000000400490  00000490</span><br><span class="line">       0000000000000030  0000000000000000   A       5     1     8</span><br><span class="line">  [ 8] .rela.dyn         RELA             00000000004004c0  000004c0</span><br><span class="line">       0000000000000030  0000000000000018   A       4     0     8</span><br><span class="line">  [ 9] .rela.plt         RELA             00000000004004f0  000004f0</span><br><span class="line">       00000000000000a8  0000000000000018  AI       4    21     8</span><br><span class="line">  [10] .init             PROGBITS         0000000000401000  00001000</span><br><span class="line">       000000000000001b  0000000000000000  AX       0     0     4</span><br><span class="line">  [11] .plt              PROGBITS         0000000000401020  00001020</span><br><span class="line">       0000000000000080  0000000000000010  AX       0     0     16</span><br><span class="line">  [12] .text             PROGBITS         00000000004010a0  000010a0</span><br><span class="line">       0000000000003a75  0000000000000000  AX       0     0     16</span><br><span class="line">  [13] .fini             PROGBITS         0000000000404b18  00004b18</span><br><span class="line">       000000000000000d  0000000000000000  AX       0     0     4</span><br><span class="line">  [14] .rodata           PROGBITS         0000000000405000  00005000</span><br><span class="line">       0000000000000698  0000000000000000   A       0     0     16</span><br><span class="line">  [15] .eh_frame_hdr     PROGBITS         0000000000405698  00005698</span><br><span class="line">       000000000000017c  0000000000000000   A       0     0     4</span><br><span class="line">  [16] .eh_frame         PROGBITS         0000000000405818  00005818</span><br><span class="line">       0000000000000740  0000000000000000   A       0     0     8</span><br><span class="line">  [17] .init_array       INIT_ARRAY       0000000000407e00  00006e00</span><br><span class="line">       0000000000000008  0000000000000008  WA       0     0     8</span><br><span class="line">  [18] .fini_array       FINI_ARRAY       0000000000407e08  00006e08</span><br><span class="line">       0000000000000008  0000000000000008  WA       0     0     8</span><br><span class="line">  [19] .dynamic          DYNAMIC          0000000000407e10  00006e10</span><br><span class="line">       00000000000001e0  0000000000000010  WA       5     0     8</span><br><span class="line">  [20] .got              PROGBITS         0000000000407ff0  00006ff0</span><br><span class="line">       0000000000000010  0000000000000008  WA       0     0     8</span><br><span class="line">  [21] .got.plt          PROGBITS         0000000000408000  00007000</span><br><span class="line">       0000000000000050  0000000000000008  WA       0     0     8</span><br><span class="line">  [22] .data             PROGBITS         0000000000408050  00007050</span><br><span class="line">       000000000000002c  0000000000000000  WA       0     0     16</span><br><span class="line">  [23] .bss              NOBITS           0000000000408080  0000707c</span><br><span class="line">       0000000000000028  0000000000000000  WA       0     0     8</span><br><span class="line">  [24] .comment          PROGBITS         0000000000000000  0000707c</span><br><span class="line">       0000000000000094  0000000000000001  MS       0     0     1</span><br><span class="line">  [25] .symtab           SYMTAB           0000000000000000  00007110</span><br><span class="line">       0000000000000b70  0000000000000018          26    56     8</span><br><span class="line">  [26] .strtab           STRTAB           0000000000000000  00007c80</span><br><span class="line">       0000000000000552  0000000000000000           0     0     1</span><br><span class="line">  [27] .shstrtab         STRTAB           0000000000000000  000081d2</span><br><span class="line">       00000000000000f0  0000000000000000           0     0     1</span><br><span class="line">Key to Flags:</span><br><span class="line">  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),</span><br><span class="line">  L (link order), O (extra OS processing required), G (group), T (TLS),</span><br><span class="line">  C (compressed), x (unknown), o (OS specific), E (exclude),</span><br><span class="line">  l (large), p (processor specific)</span><br></pre></td></tr></table></figure>
+<p>这里是不包含.rela.text section的。下面用llvm-bolt对coremark.exe进行插桩。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/project/llvm/build/bin/llvm-bolt coremark.exe --instrumentation-file=/home/wzl/project/coremark/perf.fdata  -instrument -o coremark.instr</span><br></pre></td></tr></table></figure>
+<p>会发现，bolt执行报错了：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">BOLT-INFO: shared object or position-independent executable detected</span><br><span class="line">BOLT-INFO: Target architecture: x86_64</span><br><span class="line">BOLT-INFO: BOLT version: 5ff27fe1ff03d5aeaf8567c97618170f0cef8f58</span><br><span class="line">BOLT-INFO: first alloc address is 0x0</span><br><span class="line">BOLT-INFO: creating new program header table at address 0x200000, offset 0x200000</span><br><span class="line">BOLT-ERROR: instrumentation runtime libraries require relocations</span><br></pre></td></tr></table></figure>
+<p>修改bolt源码：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">diff --git a/bolt/include/bolt/Core/BinaryContext.h b/bolt/include/bolt/Core/BinaryContext.h</span><br><span class="line">index ccd183369954..eafe0bf74a9c 100644</span><br><span class="line">--- a/bolt/include/bolt/Core/BinaryContext.h</span><br><span class="line">+++ b/bolt/include/bolt/Core/BinaryContext.h</span><br><span class="line">@@ -552,7 +552,7 @@ public:</span><br><span class="line">   std::unique_ptr&lt;MCAsmBackend&gt; MAB;</span><br><span class="line"> </span><br><span class="line">   /// Indicates if relocations are available for usage.</span><br><span class="line">-  bool HasRelocations&#123;false&#125;;</span><br><span class="line">+  bool HasRelocations&#123;true&#125;;</span><br><span class="line"> </span><br><span class="line">   /// Is the binary always loaded at a fixed address. Shared objects and</span><br><span class="line">   /// position-independent executables (PIEs) are examples of binaries that</span><br><span class="line">diff --git a/bolt/lib/Rewrite/RewriteInstance.cpp b/bolt/lib/Rewrite/RewriteInstance.cpp</span><br><span class="line">index 2d3f987af959..4798456d02fc 100644</span><br><span class="line">--- a/bolt/lib/Rewrite/RewriteInstance.cpp</span><br><span class="line">+++ b/bolt/lib/Rewrite/RewriteInstance.cpp</span><br><span class="line">@@ -1588,7 +1588,7 @@ Error RewriteInstance::readSpecialSections() &#123;</span><br><span class="line">               &quot;Use -update-debug-sections to keep it.\n&quot;;</span><br><span class="line">   &#125;</span><br><span class="line"> </span><br><span class="line">-  HasTextRelocations = (bool)BC-&gt;getUniqueSectionByName(&quot;.rela.text&quot;);</span><br><span class="line">+  HasTextRelocations = true; // (bool)BC-&gt;getUniqueSectionByName(&quot;.rela.text&quot;);</span><br><span class="line">   LSDASection = BC-&gt;getUniqueSectionByName(&quot;.gcc_except_table&quot;);</span><br><span class="line">   EHFrameSection = BC-&gt;getUniqueSectionByName(&quot;.eh_frame&quot;);</span><br><span class="line">   GOTPLTSection = BC-&gt;getUniqueSectionByName(&quot;.got.plt&quot;);</span><br></pre></td></tr></table></figure>
+<p>这里修改的目的是，虽然coremark.exe中没有rela.text section，但是在bolt程序中当做有，看下会导致哪些问题。<br>再次执行上述的插桩命令，会发现bolt执行完了。接下来，执行coremark.instr。查看perf.fdata，会发现里面基本没有记录。</p>
+<p><img src="/2022/06/24/Bolt%E4%B8%ADRelocation%E4%BD%9C%E7%94%A8%E5%88%86%E6%9E%90/perf_fail.png"></p>
+<p>为了定位数据输出问题，这里做一组对照实验。编译时链接器加–emit-relocs选项。</p>
+<ul>
+<li>生成带relocaton section的coremark_reloc.exe<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/project/llvm/build/bin/clang -O2 -Wl,--emit-relocs -Ilinux -Iposix -I. -DFLAGS_STR=\&quot;&quot;-O2 -DPERFORMANCE_RUN=1  -lrt&quot;\&quot; -DITERATIONS=0 -DPERFORMANCE_RUN=1 core_list_join.c core_main.c core_matrix.c core_state.c core_util.c posix/core_portme.c -o ./coremark_reloc.exe -lrt</span><br></pre></td></tr></table></figure></li>
+<li>对coremark_reloc.exe插桩生成coremark_reloc.instr<ul>
+<li>注意，这里需要指定数据的保存位置且要用绝对路径，否则可能无法找到perf.fdata文件。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/project/llvm/build/bin/llvm-bolt coremark_reloc.exe --instrumentation-file=/home/wzl/project/coremark/perf.fdata  -instrument -o coremark_reloc.instr</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>分别对coremark.instr和coremark_reloc.instr进行反汇编，对比反汇编的结果。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">objdump -d coremark.instr</span><br><span class="line">objdump -d coremark_reloc.instr</span><br></pre></td></tr></table></figure>
+对比结果如下：<br><img src="/2022/06/24/Bolt%E4%B8%ADRelocation%E4%BD%9C%E7%94%A8%E5%88%86%E6%9E%90/instr_diff.png"></li>
+</ul>
+<p>主要区别是_start函数中有三条立即数的mov指令，而这三个立即数分别对应__libc_csu_fini，__libc_csu_init和main函数的地址。左边是coremar.instr的反汇编，三个立即数分别对应原text section的函数地址，右边是coremark_reloc.instr的反汇编，三个立即数对应新text section中的函数地址。</p>
+<p>简单说，coremark.exe中不含rela.text section，对于_start函数中的三条mov指令，bolt没有办法识别这三个立即数是与三个符号绑定的，因此，在函数地址发生变化以后，也就不能做地址更新。而coremark_reloc.exe在插桩过程中，反汇编_start函数时，可以通过rela.text section读取到三条指令分别与三个符号绑定。反汇编过程会将指令的立即数替换为symbol，后面经重新汇编和链接以后三条指令会更新为新的函数地址。</p>
+<p>综上，relocation section的主要作用为辅助函数反汇编，因为有些指令，仅从操作码上无法判断其是否有symbol引用。而bolt插桩&#x2F;优化又可能导致symbol地址发生变化，若反汇编时缺乏symbol引用信息，会影响后面汇编和链接时指令的更新。</p>
+<p><strong>注：</strong>上面的实验使用的clang14进行编译。若使用clang15，则_start中的三条mov指令对应的位置被编译成三条lea，此时coremark即使不包含rela.text section，仍可正常做插桩和优化。原因是lea指令可以通过操作码获知该指令包含symbol引用。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zhihaishibei/BlogFile/tree/master/BoltRelocation">文中生成的相关文件</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/11/Propeller%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%E5%8F%8A%E5%BD%B1%E5%93%8D%E5%88%86%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="知海拾贝">
+      <meta itemprop="description" content="博学参省，跬步千里">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="知海拾贝 博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/06/11/Propeller%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%E5%8F%8A%E5%BD%B1%E5%93%8D%E5%88%86%E6%9E%90/" class="post-title-link" itemprop="url">Propeller优化流程及影响分析</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-06-11 12:34:39" itemprop="dateCreated datePublished" datetime="2022-06-11T12:34:39+08:00">2022-06-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-08-26 19:45:23" itemprop="dateModified" datetime="2022-08-26T19:45:23+08:00">2022-08-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PGO/" itemprop="url" rel="index"><span itemprop="name">PGO</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="一、Propeller执行过程"><a href="#一、Propeller执行过程" class="headerlink" title="一、Propeller执行过程"></a>一、Propeller执行过程</h2><p>propller是google基于LLVM开发的一个post linker optimizer，本质上是一种profile guided optimization的优化方法。propeller优化是嵌在linker中的，作为linker的一个步骤。当前profile数据的采集紧支持采样，不支持插桩。执行过程如下图：</p>
+<p><img src="/2022/06/11/Propeller%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%E5%8F%8A%E5%BD%B1%E5%93%8D%E5%88%86%E6%9E%90/Propeller_workflow.drawio.svg"></p>
+<ol>
+<li>将源文件编译成可执行文件，变异过程中加入–fblock-sections&#x3D;labels选项，其作用是为每个basic block生成一个symbol，该symbol用于映射perf采集的profile</li>
+<li>执行可执行文件， 并用perf采集profile</li>
+<li>转换perf数据为propeller可读数据</li>
+<li>输入中间IR，编译生成object，并执行链接，其中object的会为每个basic block生成一个section，用于在linker上做code layout。</li>
+</ol>
+<h2 id="二、Propeller对可执行文件codesize的影响"><a href="#二、Propeller对可执行文件codesize的影响" class="headerlink" title="二、Propeller对可执行文件codesize的影响"></a>二、Propeller对可执行文件codesize的影响</h2><p>propeller的优化嵌在linker里，之所以可以在linker阶段做code layout，是因为compiler将函数中的每个basic block放在一个独立的section中。<br>在propeller RFC中，有提到propeller会导致可执行文件size增大，其中包括由于block label的存在，导致.symtab和.strtab增加，这一点容易理解。另外，由于block section的存在，会导致.eh_frame增加，之前对.eh_frame了解的不多，因此对这一点没有清晰的认识。下面就用RFC中的例子，分析为什么会导致.eh_frame的size增加。</p>
+<p><strong>RFC中的用例：</strong></p>
+<p>包含main.cc和callee.cc两个文件。</p>
+<p>main.cc</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">callee</span><span class="params">(<span class="type">bool</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> repeat = <span class="built_in">atoi</span>(argv[<span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        <span class="built_in">callee</span>(argc % <span class="number">2</span> == <span class="number">0</span>);</span><br><span class="line">    &#125; <span class="keyword">while</span> (--repeat &gt; <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>callee.c</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">callee</span><span class="params">(<span class="type">bool</span> direction)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (direction)</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;True branch\n&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;False brnach\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>用clang分别编译出包含和不包含block sections可执行文件。编译命令如下：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~/project/llvm/build/bin/clang++ main.cc callee.cc -o a.out</span><br><span class="line">~/project/llvm/build/bin/clang++ -fblock-sections=all main.cc callee.cc -o a.out.sections</span><br></pre></td></tr></table></figure>
+<p>通过命令<code>readelf -S a.out</code>查看可执行文件的sections<br>对比其sections，如下图：<br><img src="/2022/06/11/Propeller%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%E5%8F%8A%E5%BD%B1%E5%93%8D%E5%88%86%E6%9E%90/section_cmp.png"><br>可见，除.symtab和.strtab secction外，.text、.eh_frame_hdr和eh_frame section的size都有所增加。</p>
+<p>通过命令<code>objdump -d a.out</code> 查看可执行文件的反汇编，对比结果如下：<br><img src="/2022/06/11/Propeller%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%E5%8F%8A%E5%BD%B1%E5%93%8D%E5%88%86%E6%9E%90/text_section_cmp.png"><br>.text section的增加，主要体现在block之间全部用branch指令连接。当然，这里的对比还不是真正做了propeller优化后的状态，这些在propeller优化中是有相应的branch relaxation处理的。这里主要分析对.eh_frame的影响。</p>
+<p> 使用命令<code>readelf -wF a.out</code> 查看.eh_frame的内容。对比其.eh_frame的差异，如下图：<br> <img src="/2022/06/11/Propeller%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%E5%8F%8A%E5%BD%B1%E5%93%8D%E5%88%86%E6%9E%90/frame_cmp.png"><br> 不带block section的.eh_frame与text段的对应关系如下：<br> <img src="/2022/06/11/Propeller%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%E5%8F%8A%E5%BD%B1%E5%93%8D%E5%88%86%E6%9E%90/frame_text_origin.png"><br> 带block section的.eh_frame与.text section的对应关系如下：<br> <img src="/2022/06/11/Propeller%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%E5%8F%8A%E5%BD%B1%E5%93%8D%E5%88%86%E6%9E%90/frame_text_propeller.png"><br> 这里可以看到，由于block section的存在，.eh_frame section会为每个block section分别生成对应的frame信息，由此导致frame size增加。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/29/propeller/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="知海拾贝">
+      <meta itemprop="description" content="博学参省，跬步千里">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="知海拾贝 博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/05/29/propeller/" class="post-title-link" itemprop="url">Propeller</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-05-29 01:07:54" itemprop="dateCreated datePublished" datetime="2022-05-29T01:07:54+08:00">2022-05-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-08-26 19:45:19" itemprop="dateModified" datetime="2022-08-26T19:45:19+08:00">2022-08-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PGO/" itemprop="url" rel="index"><span itemprop="name">PGO</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Propeller-源码分析"><a href="#Propeller-源码分析" class="headerlink" title="Propeller 源码分析"></a>Propeller 源码分析</h1><h2 id="一、源码下载"><a href="#一、源码下载" class="headerlink" title="一、源码下载"></a>一、源码下载</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/google/llvm-propeller.git</span><br></pre></td></tr></table></figure>
+<p>下载后默认分支是bb-clusters，该分支实际上是不包含propeller优化的。切换分支到plo-dev，就可以查看相关源码了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b plo-dev origin/plo-dev</span><br></pre></td></tr></table></figure>
+<h2 id="二、源码解析"><a href="#二、源码解析" class="headerlink" title="二、源码解析"></a>二、源码解析</h2><p>lld&#x2F;ELF&#x2F;Driver.cpp</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Do actual linking. Note that when this function is called,</span></span><br><span class="line"><span class="comment">// all linker scripts have already been parsed.</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">ELFT</span>&gt; <span class="function"><span class="type">void</span> <span class="title">LinkerDriver::link</span><span class="params">(opt::InputArgList &amp;args)</span> </span>&#123;</span><br><span class="line">  <span class="function">llvm::TimeTraceScope <span class="title">timeScope</span><span class="params">(<span class="string">&quot;Link&quot;</span>, StringRef(<span class="string">&quot;LinkerDriver::Link&quot;</span>))</span></span>;</span><br><span class="line">  <span class="comment">// If a -hash-style option was not given, set to a default value,</span></span><br><span class="line">  <span class="comment">// which varies depending on the target.</span></span><br><span class="line">  <span class="keyword">if</span> (!args.<span class="built_in">hasArg</span>(OPT_hash_style)) &#123;</span><br><span class="line">    <span class="keyword">if</span> (config-&gt;emachine == EM_MIPS)</span><br><span class="line">      config-&gt;sysvHash = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      config-&gt;sysvHash = config-&gt;gnuHash = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Default output filename is &quot;a.out&quot; by the Unix tradition.</span></span><br><span class="line">  <span class="keyword">if</span> (config-&gt;outputFile.<span class="built_in">empty</span>())</span><br><span class="line">    config-&gt;outputFile = <span class="string">&quot;a.out&quot;</span>;</span><br><span class="line"></span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  lld::propeller::<span class="built_in">doPropeller</span>();</span><br><span class="line"></span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Write the result to the file.</span></span><br><span class="line">  <span class="built_in">writeResult</span>&lt;ELFT&gt;();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在link中调用<code>doPropeller</code>，该函数就是Propeller优化器的入口。</p>
+<p>lld&#x2F;ELF&#x2F;LinkerPropeller.cpp</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Propeller framework entrance.</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">doPropeller</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="built_in">setupConfig</span>();</span><br><span class="line">  prop = <span class="built_in">make</span>&lt;Propeller&gt;();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (!prop-&gt;<span class="built_in">maybeCheckTarget</span>()) &#123;</span><br><span class="line">    <span class="built_in">warn</span>(<span class="string">&quot;[Propeller]: Propeller skipped &#x27;&quot;</span> + config-&gt;outputFile + <span class="string">&quot;&#x27;.&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  std::vector&lt;ObjectView *&gt; objectViews;</span><br><span class="line">  std::for_each(objectFiles.<span class="built_in">begin</span>(), objectFiles.<span class="built_in">end</span>(),</span><br><span class="line">                 [&amp;objectViews](<span class="type">const</span> InputFile *inf) &#123;</span><br><span class="line">                   <span class="keyword">auto</span> *ov = Propeller::<span class="built_in">createObjectView</span>(</span><br><span class="line">                       inf-&gt;<span class="built_in">getName</span>(), objectViews.<span class="built_in">size</span>() + <span class="number">1</span>, inf-&gt;mb);</span><br><span class="line">                   <span class="keyword">if</span> (ov)</span><br><span class="line">                     objectViews.<span class="built_in">push_back</span>(ov);</span><br><span class="line">                 &#125;);</span><br><span class="line">  <span class="keyword">if</span> (prop-&gt;<span class="built_in">processFiles</span>(objectViews))</span><br><span class="line">    config-&gt;symbolOrderingFile = prop-&gt;<span class="built_in">genSymbolOrderingFile</span>();</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="built_in">error</span>(<span class="string">&quot;Propeller stage failed.&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>函数执行<code>processFiles</code> 和 <code>genSymbolOrderingFile</code>。</p>
+<h3 id="2-1-processFiles执行过程"><a href="#2-1-processFiles执行过程" class="headerlink" title="2.1 processFiles执行过程"></a>2.1 processFiles执行过程</h3><p>lld&#x2F;ELF&#x2F;Propeller&#x2F;Propeller.cpp</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Entrance of Propeller framework. This processes each elf input file in</span></span><br><span class="line"><span class="comment">// parallel and stores the result information.</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">Propeller::processFiles</span><span class="params">(std::vector&lt;ObjectView *&gt; &amp;views)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!propf-&gt;<span class="built_in">readSymbols</span>()) &#123;</span><br><span class="line">    <span class="built_in">error</span>(std::<span class="built_in">string</span>(<span class="string">&quot;invalid propfile: &#x27;&quot;</span>) + propConfig.optPropeller.<span class="built_in">str</span>() +</span><br><span class="line">          <span class="string">&quot;&#x27;&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  processFailureCount = <span class="number">0</span>;</span><br><span class="line">  llvm::parallel::for_each(</span><br><span class="line">      llvm::parallel::<span class="built_in">parallel_execution_policy</span>(), views.<span class="built_in">begin</span>(), views.<span class="built_in">end</span>(),</span><br><span class="line">      std::<span class="built_in">bind</span>(&amp;Propeller::processFile, <span class="keyword">this</span>, std::placeholders::_1));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (processFailureCount * <span class="number">100</span> / views.<span class="built_in">size</span>() &gt;= <span class="number">50</span>)</span><br><span class="line">    <span class="built_in">warn</span>(<span class="string">&quot;propeller failed to parse more than half the objects, &quot;</span></span><br><span class="line">         <span class="string">&quot;optimization would suffer&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* Drop alias cfgs. */</span></span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Map profiles.</span></span><br><span class="line">  <span class="keyword">if</span> (!propf-&gt;<span class="built_in">processProfile</span>())</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">calculateNodeFreqs</span>();</span><br><span class="line"></span><br><span class="line">  <span class="built_in">dumpCfgs</span>();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Releasing all support data (symbol ordinal / name map, saved string refs,</span></span><br><span class="line">  <span class="comment">// etc) before moving to reordering.</span></span><br><span class="line">  propf.<span class="built_in">reset</span>(<span class="literal">nullptr</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Propeller::processFile</span><span class="params">(ObjectView *view)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (view) &#123;</span><br><span class="line">    std::map&lt;<span class="type">uint64_t</span>, <span class="type">uint64_t</span>&gt; ordinalRemapping;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">CFGBuilder</span>(view).<span class="built_in">buildCFGs</span>(ordinalRemapping)) &#123;</span><br><span class="line">      <span class="comment">// Updating global data structure.</span></span><br><span class="line">      <span class="function">std::lock_guard&lt;std::mutex&gt; <span class="title">lockGuard</span><span class="params">(lock)</span></span>;</span><br><span class="line">      Views.<span class="built_in">emplace_back</span>(view);</span><br><span class="line">      <span class="keyword">for</span> (std::pair&lt;<span class="type">const</span> StringRef, std::unique_ptr&lt;ControlFlowGraph&gt;&gt; &amp;p :</span><br><span class="line">           view-&gt;cfgs) &#123;</span><br><span class="line">        <span class="keyword">auto</span> result = cfgMap[p.first].<span class="built_in">emplace</span>(p.second.<span class="built_in">get</span>());</span><br><span class="line">        (<span class="type">void</span>)(result);</span><br><span class="line">        <span class="built_in">assert</span>(result.second);</span><br><span class="line">      &#125;</span><br><span class="line">      propf-&gt;ordinalRemapping.<span class="built_in">insert</span>(ordinalRemapping.<span class="built_in">begin</span>(),</span><br><span class="line">                                     ordinalRemapping.<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">warn</span>(<span class="string">&quot;skipped building controlFlowGraph for &#x27;&quot;</span> + view-&gt;viewName + <span class="string">&quot;&#x27;&quot;</span>);</span><br><span class="line">      ++processFailureCount;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在processFiles函数中，流程总结如下：</p>
+<ul>
+<li>遍历所有输入的ELF文件，为每个ELF文件，为其包含的所有函数构建CFG</li>
+<li>读取并映射profile信息</li>
+<li>计算执行频率。</li>
+</ul>
+<h3 id="2-2-genSymbolOrderingFile-执行过程"><a href="#2-2-genSymbolOrderingFile-执行过程" class="headerlink" title="2.2 genSymbolOrderingFile 执行过程"></a>2.2 genSymbolOrderingFile 执行过程</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Generate symbol ordering file according to selected optimization pass and</span></span><br><span class="line"><span class="comment">// feed it to the linker.</span></span><br><span class="line"><span class="function">std::vector&lt;StringRef&gt; <span class="title">Propeller::genSymbolOrderingFile</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="function">std::list&lt;StringRef&gt; <span class="title">symbolList</span><span class="params">(<span class="number">1</span>, <span class="string">&quot;hot&quot;</span>)</span></span>;</span><br><span class="line">  <span class="type">const</span> <span class="keyword">auto</span> hotPlaceHolder = symbolList.<span class="built_in">begin</span>();</span><br><span class="line">  <span class="type">const</span> <span class="keyword">auto</span> coldPlaceHolder = symbolList.<span class="built_in">end</span>();</span><br><span class="line">  propLayout = <span class="built_in">make</span>&lt;CodeLayout&gt;();</span><br><span class="line">  propLayout-&gt;<span class="built_in">doSplitOrder</span>(symbolList, hotPlaceHolder, coldPlaceHolder);</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="built_in">calculateLegacy</span>(symbolList, hotPlaceHolder, coldPlaceHolder);</span><br><span class="line"></span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  symbolList.<span class="built_in">erase</span>(hotPlaceHolder);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> std::<span class="built_in">vector</span>&lt;StringRef&gt;(</span><br><span class="line">      std::move_iterator&lt;std::list&lt;StringRef&gt;::iterator&gt;(symbolList.<span class="built_in">begin</span>()),</span><br><span class="line">      std::move_iterator&lt;std::list&lt;StringRef&gt;::iterator&gt;(symbolList.<span class="built_in">end</span>()));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>核心函数是doSplitOrder，该函数为CodeLayout的入口函数。</p>
+<p>lld&#x2F;ELF&#x2F;Propeller&#x2F;CodeLayout&#x2F;CodeLayout.cpp</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// This function iterates over the cfgs included in the Propeller profile and</span></span><br><span class="line"><span class="comment">// adds them to cold and hot cfg lists. Then it appropriately performs basic</span></span><br><span class="line"><span class="comment">// block reordering by calling NodeChainBuilder.doOrder() either on all cfgs (if</span></span><br><span class="line"><span class="comment">// -propeller-opt=reorder-ip) or individually on every controlFlowGraph. After</span></span><br><span class="line"><span class="comment">// creating all the node chains, it hands the basic block chains to a</span></span><br><span class="line"><span class="comment">// ChainClustering instance for further rerodering.</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">CodeLayout::doSplitOrder</span><span class="params">(std::list&lt;StringRef&gt; &amp;symbolList,</span></span></span><br><span class="line"><span class="params"><span class="function">                              std::list&lt;StringRef&gt;::iterator hotPlaceHolder,</span></span></span><br><span class="line"><span class="params"><span class="function">                              std::list&lt;StringRef&gt;::iterator coldPlaceHolder)</span> </span>&#123;</span><br><span class="line">  std::chrono::steady_clock::time_point start =</span><br><span class="line">      std::chrono::steady_clock::<span class="built_in">now</span>();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Populate the hot and cold cfg lists by iterating over the cfgs in the</span></span><br><span class="line">  <span class="comment">// propeller profile.</span></span><br><span class="line">  prop-&gt;forEachCfgRef([<span class="keyword">this</span>](ControlFlowGraph &amp;cfg) &#123;</span><br><span class="line">    <span class="keyword">if</span> (cfg.<span class="built_in">isHot</span>()) &#123;</span><br><span class="line">      hotCFGs.<span class="built_in">push_back</span>(&amp;cfg);</span><br><span class="line">      <span class="keyword">if</span> (propConfig.optPrintStats) &#123;</span><br><span class="line">        <span class="comment">// Dump the number of basic blocks and hot basic blocks for every</span></span><br><span class="line">        <span class="comment">// function</span></span><br><span class="line">        <span class="type">unsigned</span> hotBBs = <span class="number">0</span>;</span><br><span class="line">        <span class="type">unsigned</span> allBBs = <span class="number">0</span>;</span><br><span class="line">        cfg.forEachNodeRef([&amp;hotBBs, &amp;allBBs](CFGNode &amp;node) &#123;</span><br><span class="line">          <span class="keyword">if</span> (node.freq)</span><br><span class="line">            hotBBs++;</span><br><span class="line">          allBBs++;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="built_in">fprintf</span>(stderr, <span class="string">&quot;HISTOGRAM: %s,%u,%u\n&quot;</span>, cfg.name.<span class="built_in">str</span>().<span class="built_in">c_str</span>(), allBBs,</span><br><span class="line">                hotBBs);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span></span><br><span class="line">      coldCFGs.<span class="built_in">push_back</span>(&amp;cfg);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (propConfig.optReorderBlocksRandom)</span><br><span class="line">    clustering.<span class="built_in">reset</span>(<span class="keyword">new</span> <span class="built_in">NoOrdering</span>());</span><br><span class="line">  <span class="keyword">if</span> (propConfig.optReorderIP || propConfig.optReorderFuncs)</span><br><span class="line">    clustering.<span class="built_in">reset</span>(<span class="keyword">new</span> <span class="built_in">CallChainClustering</span>());</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// If function ordering is disabled, we want to conform the the initial</span></span><br><span class="line">    <span class="comment">// ordering of functions in both the hot and the cold layout.</span></span><br><span class="line">    clustering.<span class="built_in">reset</span>(<span class="keyword">new</span> <span class="built_in">NoOrdering</span>());</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  std::<span class="built_in">srand</span>(<span class="built_in">unsigned</span>(std::<span class="built_in">time</span>(<span class="number">0</span>)));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (propConfig.optReorderIP) &#123;</span><br><span class="line">    <span class="comment">// If -propeller-opt=reorder-ip we want to run basic block reordering on all</span></span><br><span class="line">    <span class="comment">// the basic blocks of the hot cfgs.</span></span><br><span class="line">    <span class="built_in">NodeChainBuilder</span>(hotCFGs).<span class="built_in">doOrder</span>(clustering);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (propConfig.optReorderBlocks) &#123;</span><br><span class="line">    <span class="comment">// Otherwise we apply reordering on every controlFlowGraph separately</span></span><br><span class="line">    <span class="keyword">for</span> (ControlFlowGraph *cfg : hotCFGs)</span><br><span class="line">      <span class="built_in">NodeChainBuilder</span>(cfg).<span class="built_in">doOrder</span>(clustering);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// If reordering is not desired, we create changes according to the initial</span></span><br><span class="line">    <span class="comment">// order in the controlFlowGraph.</span></span><br><span class="line">    <span class="keyword">for</span> (ControlFlowGraph *cfg : hotCFGs) &#123;</span><br><span class="line">      <span class="keyword">if</span> (propConfig.optSplitFuncs) &#123;</span><br><span class="line">        std::vector&lt;CFGNode *&gt; coldNodes, hotNodes;</span><br><span class="line">        cfg-&gt;forEachNodeRef([&amp;coldNodes, &amp;hotNodes](CFGNode &amp;n) &#123;</span><br><span class="line">          <span class="keyword">if</span> (n.freq)</span><br><span class="line">            hotNodes.<span class="built_in">emplace_back</span>(&amp;n);</span><br><span class="line">          <span class="keyword">else</span></span><br><span class="line">            coldNodes.<span class="built_in">emplace_back</span>(&amp;n);</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">auto</span> compareNodeAddress = [](CFGNode *n1, CFGNode *n2) &#123;</span><br><span class="line">          <span class="keyword">return</span> n1-&gt;mappedAddr &lt; n2-&gt;mappedAddr;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="built_in">sort</span>(hotNodes.<span class="built_in">begin</span>(), hotNodes.<span class="built_in">end</span>(), compareNodeAddress);</span><br><span class="line">        <span class="built_in">sort</span>(coldNodes.<span class="built_in">begin</span>(), coldNodes.<span class="built_in">end</span>(), compareNodeAddress);</span><br><span class="line">        <span class="keyword">if</span> (propConfig.optReorderBlocksRandom &amp;&amp; hotNodes.<span class="built_in">size</span>() &gt; <span class="number">1</span>) &#123;</span><br><span class="line">          std::<span class="built_in">srand</span>(<span class="built_in">unsigned</span>(std::<span class="built_in">time</span>(<span class="number">0</span>)));</span><br><span class="line">          std::<span class="built_in">random_shuffle</span>(hotNodes.<span class="built_in">begin</span>(), hotNodes.<span class="built_in">end</span>());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!hotNodes.<span class="built_in">empty</span>())</span><br><span class="line">          clustering-&gt;<span class="built_in">addChain</span>(std::<span class="built_in">make_unique</span>&lt;NodeChain&gt;(hotNodes));</span><br><span class="line">        <span class="keyword">if</span> (!coldNodes.<span class="built_in">empty</span>())</span><br><span class="line">          clustering-&gt;<span class="built_in">addChain</span>(std::<span class="built_in">make_unique</span>&lt;NodeChain&gt;(coldNodes));</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="comment">// No split functions.</span></span><br><span class="line">	<span class="keyword">if</span> (propConfig.optReorderBlocksRandom) &#123;</span><br><span class="line">	  std::vector&lt;CFGNode *&gt; randomized_nodes;</span><br><span class="line">	  cfg-&gt;forEachNodeRef([&amp;randomized_nodes](CFGNode &amp;n) &#123;</span><br><span class="line">				randomized_nodes.<span class="built_in">emplace_back</span>(&amp;n);</span><br><span class="line">			      &#125;);</span><br><span class="line">          std::<span class="built_in">srand</span>(<span class="built_in">unsigned</span>(std::<span class="built_in">time</span>(<span class="number">0</span>)));</span><br><span class="line">	  std::<span class="built_in">random_shuffle</span>(randomized_nodes.<span class="built_in">begin</span>(), randomized_nodes.<span class="built_in">end</span>());</span><br><span class="line">	  clustering-&gt;<span class="built_in">addChain</span>(std::<span class="built_in">make_unique</span>&lt;NodeChain&gt;(randomized_nodes));</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	  clustering-&gt;<span class="built_in">addChain</span>(std::<span class="built_in">make_unique</span>&lt;NodeChain&gt;(cfg));</span><br><span class="line">	&#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">warn</span>(<span class="string">&quot;[Propeller]: generated randomized bb ordering for all hot functions.&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// The order for cold cfgs remains unchanged.</span></span><br><span class="line">  <span class="keyword">for</span> (ControlFlowGraph *cfg : coldCFGs)</span><br><span class="line">    clustering-&gt;<span class="built_in">addChain</span>(std::<span class="built_in">make_unique</span>&lt;NodeChain&gt;(cfg));</span><br><span class="line"></span><br><span class="line">  <span class="comment">// After building all the chains, let the chain clustering algorithm perform</span></span><br><span class="line">  <span class="comment">// the final reordering and populate the hot and cold cfg node orders.</span></span><br><span class="line">  clustering-&gt;<span class="built_in">doOrder</span>(HotOrder, ColdOrder);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Transfter the order to the symbol list.</span></span><br><span class="line">  <span class="keyword">for</span> (CFGNode *n : HotOrder)</span><br><span class="line">    symbolList.<span class="built_in">insert</span>(hotPlaceHolder, n-&gt;shName);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (CFGNode *n : ColdOrder)</span><br><span class="line">    symbolList.<span class="built_in">insert</span>(coldPlaceHolder, n-&gt;shName);</span><br><span class="line"></span><br><span class="line">  std::chrono::steady_clock::time_point end = std::chrono::steady_clock::<span class="built_in">now</span>();</span><br><span class="line">  <span class="built_in">warn</span>(<span class="string">&quot;[Propeller]: bb reordering took: &quot;</span> +</span><br><span class="line">       <span class="built_in">Twine</span>(std::chrono::<span class="built_in">duration_cast</span>&lt;std::chrono::milliseconds&gt;(end - start)</span><br><span class="line">                 .<span class="built_in">count</span>()));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (propConfig.optPrintStats)</span><br><span class="line">    <span class="built_in">printStats</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>分析源码，基本上明确如下几个问题：</p>
+<ol>
+<li>propeller是link的一个执行步骤</li>
+<li>profile数据的读取是在linker中</li>
+<li>优化主要体现在依据计算出的执行频率，重排代码布局</li>
+</ol>
+<p>后续将分析LTO的执行过程，并比较LTO与propeller的区别。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">知海拾贝</p>
+  <div class="site-description" itemprop="description">博学参省，跬步千里</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">知海拾贝</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

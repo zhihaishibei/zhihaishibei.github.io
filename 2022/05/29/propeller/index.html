@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Propeller 源码分析一、源码下载1git clone https:&#x2F;&#x2F;github.com&#x2F;google&#x2F;llvm-propeller.git 下载后默认分支是bb-clusters，该分支实际上是不包含propeller优化的。切换分支到plo-dev，就可以查看相关源码了。 1git checkout -b plo-dev origin&#x2F;plo-dev 二、源码解析lld&#x2F;E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Propeller">
+<meta property="og:url" content="http://example.com/2022/05/29/propeller/index.html">
+<meta property="og:site_name" content="知海拾贝 博客">
+<meta property="og:description" content="Propeller 源码分析一、源码下载1git clone https:&#x2F;&#x2F;github.com&#x2F;google&#x2F;llvm-propeller.git 下载后默认分支是bb-clusters，该分支实际上是不包含propeller优化的。切换分支到plo-dev，就可以查看相关源码了。 1git checkout -b plo-dev origin&#x2F;plo-dev 二、源码解析lld&#x2F;E">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-05-28T17:07:54.870Z">
+<meta property="article:modified_time" content="2022-08-26T11:45:19.385Z">
+<meta property="article:author" content="知海拾贝">
+<meta property="article:tag" content="post link optimizer">
+<meta property="article:tag" content="pgo">
+<meta property="article:tag" content="propeller">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2022/05/29/propeller/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Propeller | 知海拾贝 博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">知海拾贝 博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/29/propeller/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="知海拾贝">
+      <meta itemprop="description" content="博学参省，跬步千里">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="知海拾贝 博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Propeller
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-05-29 01:07:54" itemprop="dateCreated datePublished" datetime="2022-05-29T01:07:54+08:00">2022-05-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-08-26 19:45:19" itemprop="dateModified" datetime="2022-08-26T19:45:19+08:00">2022-08-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PGO/" itemprop="url" rel="index"><span itemprop="name">PGO</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Propeller-源码分析"><a href="#Propeller-源码分析" class="headerlink" title="Propeller 源码分析"></a>Propeller 源码分析</h1><h2 id="一、源码下载"><a href="#一、源码下载" class="headerlink" title="一、源码下载"></a>一、源码下载</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/google/llvm-propeller.git</span><br></pre></td></tr></table></figure>
+<p>下载后默认分支是bb-clusters，该分支实际上是不包含propeller优化的。切换分支到plo-dev，就可以查看相关源码了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b plo-dev origin/plo-dev</span><br></pre></td></tr></table></figure>
+<h2 id="二、源码解析"><a href="#二、源码解析" class="headerlink" title="二、源码解析"></a>二、源码解析</h2><p>lld&#x2F;ELF&#x2F;Driver.cpp</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Do actual linking. Note that when this function is called,</span></span><br><span class="line"><span class="comment">// all linker scripts have already been parsed.</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">ELFT</span>&gt; <span class="function"><span class="type">void</span> <span class="title">LinkerDriver::link</span><span class="params">(opt::InputArgList &amp;args)</span> </span>&#123;</span><br><span class="line">  <span class="function">llvm::TimeTraceScope <span class="title">timeScope</span><span class="params">(<span class="string">&quot;Link&quot;</span>, StringRef(<span class="string">&quot;LinkerDriver::Link&quot;</span>))</span></span>;</span><br><span class="line">  <span class="comment">// If a -hash-style option was not given, set to a default value,</span></span><br><span class="line">  <span class="comment">// which varies depending on the target.</span></span><br><span class="line">  <span class="keyword">if</span> (!args.<span class="built_in">hasArg</span>(OPT_hash_style)) &#123;</span><br><span class="line">    <span class="keyword">if</span> (config-&gt;emachine == EM_MIPS)</span><br><span class="line">      config-&gt;sysvHash = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      config-&gt;sysvHash = config-&gt;gnuHash = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Default output filename is &quot;a.out&quot; by the Unix tradition.</span></span><br><span class="line">  <span class="keyword">if</span> (config-&gt;outputFile.<span class="built_in">empty</span>())</span><br><span class="line">    config-&gt;outputFile = <span class="string">&quot;a.out&quot;</span>;</span><br><span class="line"></span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  lld::propeller::<span class="built_in">doPropeller</span>();</span><br><span class="line"></span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Write the result to the file.</span></span><br><span class="line">  <span class="built_in">writeResult</span>&lt;ELFT&gt;();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在link中调用<code>doPropeller</code>，该函数就是Propeller优化器的入口。</p>
+<p>lld&#x2F;ELF&#x2F;LinkerPropeller.cpp</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Propeller framework entrance.</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">doPropeller</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="built_in">setupConfig</span>();</span><br><span class="line">  prop = <span class="built_in">make</span>&lt;Propeller&gt;();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (!prop-&gt;<span class="built_in">maybeCheckTarget</span>()) &#123;</span><br><span class="line">    <span class="built_in">warn</span>(<span class="string">&quot;[Propeller]: Propeller skipped &#x27;&quot;</span> + config-&gt;outputFile + <span class="string">&quot;&#x27;.&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  std::vector&lt;ObjectView *&gt; objectViews;</span><br><span class="line">  std::for_each(objectFiles.<span class="built_in">begin</span>(), objectFiles.<span class="built_in">end</span>(),</span><br><span class="line">                 [&amp;objectViews](<span class="type">const</span> InputFile *inf) &#123;</span><br><span class="line">                   <span class="keyword">auto</span> *ov = Propeller::<span class="built_in">createObjectView</span>(</span><br><span class="line">                       inf-&gt;<span class="built_in">getName</span>(), objectViews.<span class="built_in">size</span>() + <span class="number">1</span>, inf-&gt;mb);</span><br><span class="line">                   <span class="keyword">if</span> (ov)</span><br><span class="line">                     objectViews.<span class="built_in">push_back</span>(ov);</span><br><span class="line">                 &#125;);</span><br><span class="line">  <span class="keyword">if</span> (prop-&gt;<span class="built_in">processFiles</span>(objectViews))</span><br><span class="line">    config-&gt;symbolOrderingFile = prop-&gt;<span class="built_in">genSymbolOrderingFile</span>();</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="built_in">error</span>(<span class="string">&quot;Propeller stage failed.&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>函数执行<code>processFiles</code> 和 <code>genSymbolOrderingFile</code>。</p>
+<h3 id="2-1-processFiles执行过程"><a href="#2-1-processFiles执行过程" class="headerlink" title="2.1 processFiles执行过程"></a>2.1 processFiles执行过程</h3><p>lld&#x2F;ELF&#x2F;Propeller&#x2F;Propeller.cpp</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Entrance of Propeller framework. This processes each elf input file in</span></span><br><span class="line"><span class="comment">// parallel and stores the result information.</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">Propeller::processFiles</span><span class="params">(std::vector&lt;ObjectView *&gt; &amp;views)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!propf-&gt;<span class="built_in">readSymbols</span>()) &#123;</span><br><span class="line">    <span class="built_in">error</span>(std::<span class="built_in">string</span>(<span class="string">&quot;invalid propfile: &#x27;&quot;</span>) + propConfig.optPropeller.<span class="built_in">str</span>() +</span><br><span class="line">          <span class="string">&quot;&#x27;&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  processFailureCount = <span class="number">0</span>;</span><br><span class="line">  llvm::parallel::for_each(</span><br><span class="line">      llvm::parallel::<span class="built_in">parallel_execution_policy</span>(), views.<span class="built_in">begin</span>(), views.<span class="built_in">end</span>(),</span><br><span class="line">      std::<span class="built_in">bind</span>(&amp;Propeller::processFile, <span class="keyword">this</span>, std::placeholders::_1));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (processFailureCount * <span class="number">100</span> / views.<span class="built_in">size</span>() &gt;= <span class="number">50</span>)</span><br><span class="line">    <span class="built_in">warn</span>(<span class="string">&quot;propeller failed to parse more than half the objects, &quot;</span></span><br><span class="line">         <span class="string">&quot;optimization would suffer&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* Drop alias cfgs. */</span></span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Map profiles.</span></span><br><span class="line">  <span class="keyword">if</span> (!propf-&gt;<span class="built_in">processProfile</span>())</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">calculateNodeFreqs</span>();</span><br><span class="line"></span><br><span class="line">  <span class="built_in">dumpCfgs</span>();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Releasing all support data (symbol ordinal / name map, saved string refs,</span></span><br><span class="line">  <span class="comment">// etc) before moving to reordering.</span></span><br><span class="line">  propf.<span class="built_in">reset</span>(<span class="literal">nullptr</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Propeller::processFile</span><span class="params">(ObjectView *view)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (view) &#123;</span><br><span class="line">    std::map&lt;<span class="type">uint64_t</span>, <span class="type">uint64_t</span>&gt; ordinalRemapping;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">CFGBuilder</span>(view).<span class="built_in">buildCFGs</span>(ordinalRemapping)) &#123;</span><br><span class="line">      <span class="comment">// Updating global data structure.</span></span><br><span class="line">      <span class="function">std::lock_guard&lt;std::mutex&gt; <span class="title">lockGuard</span><span class="params">(lock)</span></span>;</span><br><span class="line">      Views.<span class="built_in">emplace_back</span>(view);</span><br><span class="line">      <span class="keyword">for</span> (std::pair&lt;<span class="type">const</span> StringRef, std::unique_ptr&lt;ControlFlowGraph&gt;&gt; &amp;p :</span><br><span class="line">           view-&gt;cfgs) &#123;</span><br><span class="line">        <span class="keyword">auto</span> result = cfgMap[p.first].<span class="built_in">emplace</span>(p.second.<span class="built_in">get</span>());</span><br><span class="line">        (<span class="type">void</span>)(result);</span><br><span class="line">        <span class="built_in">assert</span>(result.second);</span><br><span class="line">      &#125;</span><br><span class="line">      propf-&gt;ordinalRemapping.<span class="built_in">insert</span>(ordinalRemapping.<span class="built_in">begin</span>(),</span><br><span class="line">                                     ordinalRemapping.<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">warn</span>(<span class="string">&quot;skipped building controlFlowGraph for &#x27;&quot;</span> + view-&gt;viewName + <span class="string">&quot;&#x27;&quot;</span>);</span><br><span class="line">      ++processFailureCount;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在processFiles函数中，流程总结如下：</p>
+<ul>
+<li>遍历所有输入的ELF文件，为每个ELF文件，为其包含的所有函数构建CFG</li>
+<li>读取并映射profile信息</li>
+<li>计算执行频率。</li>
+</ul>
+<h3 id="2-2-genSymbolOrderingFile-执行过程"><a href="#2-2-genSymbolOrderingFile-执行过程" class="headerlink" title="2.2 genSymbolOrderingFile 执行过程"></a>2.2 genSymbolOrderingFile 执行过程</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Generate symbol ordering file according to selected optimization pass and</span></span><br><span class="line"><span class="comment">// feed it to the linker.</span></span><br><span class="line"><span class="function">std::vector&lt;StringRef&gt; <span class="title">Propeller::genSymbolOrderingFile</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="function">std::list&lt;StringRef&gt; <span class="title">symbolList</span><span class="params">(<span class="number">1</span>, <span class="string">&quot;hot&quot;</span>)</span></span>;</span><br><span class="line">  <span class="type">const</span> <span class="keyword">auto</span> hotPlaceHolder = symbolList.<span class="built_in">begin</span>();</span><br><span class="line">  <span class="type">const</span> <span class="keyword">auto</span> coldPlaceHolder = symbolList.<span class="built_in">end</span>();</span><br><span class="line">  propLayout = <span class="built_in">make</span>&lt;CodeLayout&gt;();</span><br><span class="line">  propLayout-&gt;<span class="built_in">doSplitOrder</span>(symbolList, hotPlaceHolder, coldPlaceHolder);</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="built_in">calculateLegacy</span>(symbolList, hotPlaceHolder, coldPlaceHolder);</span><br><span class="line"></span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  symbolList.<span class="built_in">erase</span>(hotPlaceHolder);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> std::<span class="built_in">vector</span>&lt;StringRef&gt;(</span><br><span class="line">      std::move_iterator&lt;std::list&lt;StringRef&gt;::iterator&gt;(symbolList.<span class="built_in">begin</span>()),</span><br><span class="line">      std::move_iterator&lt;std::list&lt;StringRef&gt;::iterator&gt;(symbolList.<span class="built_in">end</span>()));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>核心函数是doSplitOrder，该函数为CodeLayout的入口函数。</p>
+<p>lld&#x2F;ELF&#x2F;Propeller&#x2F;CodeLayout&#x2F;CodeLayout.cpp</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// This function iterates over the cfgs included in the Propeller profile and</span></span><br><span class="line"><span class="comment">// adds them to cold and hot cfg lists. Then it appropriately performs basic</span></span><br><span class="line"><span class="comment">// block reordering by calling NodeChainBuilder.doOrder() either on all cfgs (if</span></span><br><span class="line"><span class="comment">// -propeller-opt=reorder-ip) or individually on every controlFlowGraph. After</span></span><br><span class="line"><span class="comment">// creating all the node chains, it hands the basic block chains to a</span></span><br><span class="line"><span class="comment">// ChainClustering instance for further rerodering.</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">CodeLayout::doSplitOrder</span><span class="params">(std::list&lt;StringRef&gt; &amp;symbolList,</span></span></span><br><span class="line"><span class="params"><span class="function">                              std::list&lt;StringRef&gt;::iterator hotPlaceHolder,</span></span></span><br><span class="line"><span class="params"><span class="function">                              std::list&lt;StringRef&gt;::iterator coldPlaceHolder)</span> </span>&#123;</span><br><span class="line">  std::chrono::steady_clock::time_point start =</span><br><span class="line">      std::chrono::steady_clock::<span class="built_in">now</span>();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Populate the hot and cold cfg lists by iterating over the cfgs in the</span></span><br><span class="line">  <span class="comment">// propeller profile.</span></span><br><span class="line">  prop-&gt;forEachCfgRef([<span class="keyword">this</span>](ControlFlowGraph &amp;cfg) &#123;</span><br><span class="line">    <span class="keyword">if</span> (cfg.<span class="built_in">isHot</span>()) &#123;</span><br><span class="line">      hotCFGs.<span class="built_in">push_back</span>(&amp;cfg);</span><br><span class="line">      <span class="keyword">if</span> (propConfig.optPrintStats) &#123;</span><br><span class="line">        <span class="comment">// Dump the number of basic blocks and hot basic blocks for every</span></span><br><span class="line">        <span class="comment">// function</span></span><br><span class="line">        <span class="type">unsigned</span> hotBBs = <span class="number">0</span>;</span><br><span class="line">        <span class="type">unsigned</span> allBBs = <span class="number">0</span>;</span><br><span class="line">        cfg.forEachNodeRef([&amp;hotBBs, &amp;allBBs](CFGNode &amp;node) &#123;</span><br><span class="line">          <span class="keyword">if</span> (node.freq)</span><br><span class="line">            hotBBs++;</span><br><span class="line">          allBBs++;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="built_in">fprintf</span>(stderr, <span class="string">&quot;HISTOGRAM: %s,%u,%u\n&quot;</span>, cfg.name.<span class="built_in">str</span>().<span class="built_in">c_str</span>(), allBBs,</span><br><span class="line">                hotBBs);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span></span><br><span class="line">      coldCFGs.<span class="built_in">push_back</span>(&amp;cfg);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (propConfig.optReorderBlocksRandom)</span><br><span class="line">    clustering.<span class="built_in">reset</span>(<span class="keyword">new</span> <span class="built_in">NoOrdering</span>());</span><br><span class="line">  <span class="keyword">if</span> (propConfig.optReorderIP || propConfig.optReorderFuncs)</span><br><span class="line">    clustering.<span class="built_in">reset</span>(<span class="keyword">new</span> <span class="built_in">CallChainClustering</span>());</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// If function ordering is disabled, we want to conform the the initial</span></span><br><span class="line">    <span class="comment">// ordering of functions in both the hot and the cold layout.</span></span><br><span class="line">    clustering.<span class="built_in">reset</span>(<span class="keyword">new</span> <span class="built_in">NoOrdering</span>());</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  std::<span class="built_in">srand</span>(<span class="built_in">unsigned</span>(std::<span class="built_in">time</span>(<span class="number">0</span>)));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (propConfig.optReorderIP) &#123;</span><br><span class="line">    <span class="comment">// If -propeller-opt=reorder-ip we want to run basic block reordering on all</span></span><br><span class="line">    <span class="comment">// the basic blocks of the hot cfgs.</span></span><br><span class="line">    <span class="built_in">NodeChainBuilder</span>(hotCFGs).<span class="built_in">doOrder</span>(clustering);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (propConfig.optReorderBlocks) &#123;</span><br><span class="line">    <span class="comment">// Otherwise we apply reordering on every controlFlowGraph separately</span></span><br><span class="line">    <span class="keyword">for</span> (ControlFlowGraph *cfg : hotCFGs)</span><br><span class="line">      <span class="built_in">NodeChainBuilder</span>(cfg).<span class="built_in">doOrder</span>(clustering);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// If reordering is not desired, we create changes according to the initial</span></span><br><span class="line">    <span class="comment">// order in the controlFlowGraph.</span></span><br><span class="line">    <span class="keyword">for</span> (ControlFlowGraph *cfg : hotCFGs) &#123;</span><br><span class="line">      <span class="keyword">if</span> (propConfig.optSplitFuncs) &#123;</span><br><span class="line">        std::vector&lt;CFGNode *&gt; coldNodes, hotNodes;</span><br><span class="line">        cfg-&gt;forEachNodeRef([&amp;coldNodes, &amp;hotNodes](CFGNode &amp;n) &#123;</span><br><span class="line">          <span class="keyword">if</span> (n.freq)</span><br><span class="line">            hotNodes.<span class="built_in">emplace_back</span>(&amp;n);</span><br><span class="line">          <span class="keyword">else</span></span><br><span class="line">            coldNodes.<span class="built_in">emplace_back</span>(&amp;n);</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">auto</span> compareNodeAddress = [](CFGNode *n1, CFGNode *n2) &#123;</span><br><span class="line">          <span class="keyword">return</span> n1-&gt;mappedAddr &lt; n2-&gt;mappedAddr;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="built_in">sort</span>(hotNodes.<span class="built_in">begin</span>(), hotNodes.<span class="built_in">end</span>(), compareNodeAddress);</span><br><span class="line">        <span class="built_in">sort</span>(coldNodes.<span class="built_in">begin</span>(), coldNodes.<span class="built_in">end</span>(), compareNodeAddress);</span><br><span class="line">        <span class="keyword">if</span> (propConfig.optReorderBlocksRandom &amp;&amp; hotNodes.<span class="built_in">size</span>() &gt; <span class="number">1</span>) &#123;</span><br><span class="line">          std::<span class="built_in">srand</span>(<span class="built_in">unsigned</span>(std::<span class="built_in">time</span>(<span class="number">0</span>)));</span><br><span class="line">          std::<span class="built_in">random_shuffle</span>(hotNodes.<span class="built_in">begin</span>(), hotNodes.<span class="built_in">end</span>());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!hotNodes.<span class="built_in">empty</span>())</span><br><span class="line">          clustering-&gt;<span class="built_in">addChain</span>(std::<span class="built_in">make_unique</span>&lt;NodeChain&gt;(hotNodes));</span><br><span class="line">        <span class="keyword">if</span> (!coldNodes.<span class="built_in">empty</span>())</span><br><span class="line">          clustering-&gt;<span class="built_in">addChain</span>(std::<span class="built_in">make_unique</span>&lt;NodeChain&gt;(coldNodes));</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="comment">// No split functions.</span></span><br><span class="line">	<span class="keyword">if</span> (propConfig.optReorderBlocksRandom) &#123;</span><br><span class="line">	  std::vector&lt;CFGNode *&gt; randomized_nodes;</span><br><span class="line">	  cfg-&gt;forEachNodeRef([&amp;randomized_nodes](CFGNode &amp;n) &#123;</span><br><span class="line">				randomized_nodes.<span class="built_in">emplace_back</span>(&amp;n);</span><br><span class="line">			      &#125;);</span><br><span class="line">          std::<span class="built_in">srand</span>(<span class="built_in">unsigned</span>(std::<span class="built_in">time</span>(<span class="number">0</span>)));</span><br><span class="line">	  std::<span class="built_in">random_shuffle</span>(randomized_nodes.<span class="built_in">begin</span>(), randomized_nodes.<span class="built_in">end</span>());</span><br><span class="line">	  clustering-&gt;<span class="built_in">addChain</span>(std::<span class="built_in">make_unique</span>&lt;NodeChain&gt;(randomized_nodes));</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	  clustering-&gt;<span class="built_in">addChain</span>(std::<span class="built_in">make_unique</span>&lt;NodeChain&gt;(cfg));</span><br><span class="line">	&#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">warn</span>(<span class="string">&quot;[Propeller]: generated randomized bb ordering for all hot functions.&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// The order for cold cfgs remains unchanged.</span></span><br><span class="line">  <span class="keyword">for</span> (ControlFlowGraph *cfg : coldCFGs)</span><br><span class="line">    clustering-&gt;<span class="built_in">addChain</span>(std::<span class="built_in">make_unique</span>&lt;NodeChain&gt;(cfg));</span><br><span class="line"></span><br><span class="line">  <span class="comment">// After building all the chains, let the chain clustering algorithm perform</span></span><br><span class="line">  <span class="comment">// the final reordering and populate the hot and cold cfg node orders.</span></span><br><span class="line">  clustering-&gt;<span class="built_in">doOrder</span>(HotOrder, ColdOrder);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Transfter the order to the symbol list.</span></span><br><span class="line">  <span class="keyword">for</span> (CFGNode *n : HotOrder)</span><br><span class="line">    symbolList.<span class="built_in">insert</span>(hotPlaceHolder, n-&gt;shName);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (CFGNode *n : ColdOrder)</span><br><span class="line">    symbolList.<span class="built_in">insert</span>(coldPlaceHolder, n-&gt;shName);</span><br><span class="line"></span><br><span class="line">  std::chrono::steady_clock::time_point end = std::chrono::steady_clock::<span class="built_in">now</span>();</span><br><span class="line">  <span class="built_in">warn</span>(<span class="string">&quot;[Propeller]: bb reordering took: &quot;</span> +</span><br><span class="line">       <span class="built_in">Twine</span>(std::chrono::<span class="built_in">duration_cast</span>&lt;std::chrono::milliseconds&gt;(end - start)</span><br><span class="line">                 .<span class="built_in">count</span>()));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (propConfig.optPrintStats)</span><br><span class="line">    <span class="built_in">printStats</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>分析源码，基本上明确如下几个问题：</p>
+<ol>
+<li>propeller是link的一个执行步骤</li>
+<li>profile数据的读取是在linker中</li>
+<li>优化主要体现在依据计算出的执行频率，重排代码布局</li>
+</ol>
+<p>后续将分析LTO的执行过程，并比较LTO与propeller的区别。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/post-link-optimizer/" rel="tag"># post link optimizer</a>
+              <a href="/tags/pgo/" rel="tag"># pgo</a>
+              <a href="/tags/propeller/" rel="tag"># propeller</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2022/06/11/Propeller%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%E5%8F%8A%E5%BD%B1%E5%93%8D%E5%88%86%E6%9E%90/" rel="next" title="Propeller优化流程及影响分析">
+      Propeller优化流程及影响分析 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Propeller-%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">Propeller 源码分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%BA%90%E7%A0%81%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.1.</span> <span class="nav-text">一、源码下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90"><span class="nav-number">1.2.</span> <span class="nav-text">二、源码解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-processFiles%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 processFiles执行过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-genSymbolOrderingFile-%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 genSymbolOrderingFile 执行过程</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">知海拾贝</p>
+  <div class="site-description" itemprop="description">博学参省，跬步千里</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">知海拾贝</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
